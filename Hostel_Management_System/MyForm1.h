@@ -8,6 +8,7 @@ namespace Hostel_Management_System {
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
+	using namespace System::Data::Odbc;
 
 	/// <summary>
 	/// Summary for MyForm1
@@ -35,6 +36,9 @@ namespace Hostel_Management_System {
 			}
 		}
 	private: System::Windows::Forms::Label^  label1;
+			 OdbcConnection ^cn;
+			 OdbcCommand ^cm;
+			 OdbcDataReader ^ dr;
 	protected:
 	private: System::Windows::Forms::Label^  label2;
 	private: System::Windows::Forms::TextBox^  textBox1;
@@ -119,6 +123,7 @@ namespace Hostel_Management_System {
 			this->button1->TabIndex = 4;
 			this->button1->Text = L"Login";
 			this->button1->UseVisualStyleBackColor = false;
+			this->button1->Click += gcnew System::EventHandler(this, &MyForm1::button1_Click);
 			// 
 			// MyForm1
 			// 
@@ -146,5 +151,27 @@ namespace Hostel_Management_System {
 				 this->Owner->Hide();
 				 //this->Owner->Show();
 	}
-	};
+	private: System::Void button1_Click(System::Object^  sender, System::EventArgs^  e) {
+				 cn = gcnew OdbcConnection("dsn=MyDsn1");
+				 cn->Open();
+				 cm = cn->CreateCommand();
+
+				 us = textBox1->Text;
+				 pa = textBox2->Text;
+
+				 cm->CommandText = "SELECT * FROM SIGNUP WHERE USERNAME='" + us + "' AND PASSWORD='" + pa + "'";
+				 dr = cm->ExecuteReader();
+				 if (dr->Read()){
+					 MessageBox::Show("You have successfully logedIn !");
+					 dr->Close();
+					 cn->Close();
+					
+					 this->Owner->Show();
+					 this->Close();
+				 }
+				 else{
+
+				 }
+	}
+};
 }

@@ -46,6 +46,8 @@ namespace Hostel_Management_System {
 	private: System::Windows::Forms::ToolStripMenuItem^  registerToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^  permanentRegistrationToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^  localRegistrationToolStripMenuItem;
+	private: System::Windows::Forms::Label^  label1;
+	private: System::Windows::Forms::Label^  label2;
 
 	protected:
 
@@ -78,6 +80,8 @@ namespace Hostel_Management_System {
 			this->registerToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->permanentRegistrationToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->localRegistrationToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->label1 = (gcnew System::Windows::Forms::Label());
+			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->menuStrip1->SuspendLayout();
 			this->SuspendLayout();
 			// 
@@ -111,7 +115,7 @@ namespace Hostel_Management_System {
 			// 
 			this->loginToolStripMenuItem->ForeColor = System::Drawing::Color::Gold;
 			this->loginToolStripMenuItem->Name = L"loginToolStripMenuItem";
-			this->loginToolStripMenuItem->Size = System::Drawing::Size(152, 26);
+			this->loginToolStripMenuItem->Size = System::Drawing::Size(136, 26);
 			this->loginToolStripMenuItem->Text = L"Login";
 			this->loginToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::loginToolStripMenuItem_Click);
 			// 
@@ -119,7 +123,7 @@ namespace Hostel_Management_System {
 			// 
 			this->signupToolStripMenuItem->ForeColor = System::Drawing::Color::Gold;
 			this->signupToolStripMenuItem->Name = L"signupToolStripMenuItem";
-			this->signupToolStripMenuItem->Size = System::Drawing::Size(152, 26);
+			this->signupToolStripMenuItem->Size = System::Drawing::Size(136, 26);
 			this->signupToolStripMenuItem->Text = L"Signup";
 			this->signupToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::signupToolStripMenuItem_Click);
 			// 
@@ -127,15 +131,16 @@ namespace Hostel_Management_System {
 			// 
 			this->logoutToolStripMenuItem->ForeColor = System::Drawing::Color::Gold;
 			this->logoutToolStripMenuItem->Name = L"logoutToolStripMenuItem";
-			this->logoutToolStripMenuItem->Size = System::Drawing::Size(152, 26);
+			this->logoutToolStripMenuItem->Size = System::Drawing::Size(136, 26);
 			this->logoutToolStripMenuItem->Text = L"Logout";
 			// 
 			// exitToolStripMenuItem
 			// 
 			this->exitToolStripMenuItem->ForeColor = System::Drawing::Color::Gold;
 			this->exitToolStripMenuItem->Name = L"exitToolStripMenuItem";
-			this->exitToolStripMenuItem->Size = System::Drawing::Size(152, 26);
+			this->exitToolStripMenuItem->Size = System::Drawing::Size(136, 26);
 			this->exitToolStripMenuItem->Text = L"Exit";
+			this->exitToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::exitToolStripMenuItem_Click);
 			// 
 			// registerToolStripMenuItem
 			// 
@@ -164,6 +169,31 @@ namespace Hostel_Management_System {
 			this->localRegistrationToolStripMenuItem->Size = System::Drawing::Size(268, 26);
 			this->localRegistrationToolStripMenuItem->Text = L"Local Registration";
 			// 
+			// label1
+			// 
+			this->label1->AutoSize = true;
+			this->label1->BackColor = System::Drawing::Color::Transparent;
+			this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label1->ForeColor = System::Drawing::Color::DarkOrange;
+			this->label1->Location = System::Drawing::Point(2, 32);
+			this->label1->Name = L"label1";
+			this->label1->Size = System::Drawing::Size(0, 25);
+			this->label1->TabIndex = 1;
+			// 
+			// label2
+			// 
+			this->label2->AutoSize = true;
+			this->label2->BackColor = System::Drawing::Color::Transparent;
+			this->label2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label2->ForeColor = System::Drawing::Color::DarkOrange;
+			this->label2->Location = System::Drawing::Point(116, 32);
+			this->label2->Name = L"label2";
+			this->label2->Size = System::Drawing::Size(0, 25);
+			this->label2->TabIndex = 2;
+			this->label2->Click += gcnew System::EventHandler(this, &MyForm::label2_Click);
+			// 
 			// MyForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
@@ -172,11 +202,14 @@ namespace Hostel_Management_System {
 			this->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"$this.BackgroundImage")));
 			this->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
 			this->ClientSize = System::Drawing::Size(461, 438);
+			this->Controls->Add(this->label2);
+			this->Controls->Add(this->label1);
 			this->Controls->Add(this->menuStrip1);
 			this->MainMenuStrip = this->menuStrip1;
 			this->Name = L"MyForm";
 			this->Text = L"MyForm";
 			this->WindowState = System::Windows::Forms::FormWindowState::Maximized;
+			this->FormClosing += gcnew System::Windows::Forms::FormClosingEventHandler(this, &MyForm::MyForm_Close);
 			this->Load += gcnew System::EventHandler(this, &MyForm::MyForm_Load);
 			this->menuStrip1->ResumeLayout(false);
 			this->menuStrip1->PerformLayout();
@@ -201,6 +234,13 @@ private: System::Void signupToolStripMenuItem_Click(System::Object^  sender, Sys
 			 MyForm2 ^signup = gcnew MyForm2();
 			 signup->Owner = this;
 			 signup->ShowDialog();
+}
+private: System::Void exitToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e) {
+			 Application::Exit();
+}
+private: System::Void MyForm_Close(System::Object^  sender, System::Windows::Forms::FormClosingEventArgs^  e) {
+}
+private: System::Void label2_Click(System::Object^  sender, System::EventArgs^  e) {
 }
 };
 }
