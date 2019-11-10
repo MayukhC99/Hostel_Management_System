@@ -1,4 +1,5 @@
 #pragma once
+#include "Glob.h";
 
 namespace Hostel_Management_System {
 
@@ -140,6 +141,7 @@ namespace Hostel_Management_System {
 			this->DoubleBuffered = true;
 			this->Name = L"MyForm1";
 			this->Text = L"Login";
+			this->FormClosing += gcnew System::Windows::Forms::FormClosingEventHandler(this, &MyForm1::MyForm1_FormClosing);
 			this->Load += gcnew System::EventHandler(this, &MyForm1::MyForm1_Load);
 			this->ResumeLayout(false);
 			this->PerformLayout();
@@ -156,13 +158,16 @@ namespace Hostel_Management_System {
 				 cn->Open();
 				 cm = cn->CreateCommand();
 
-				 us = textBox1->Text;
-				 pa = textBox2->Text;
+				 String^ us = textBox1->Text;
+				 String^ pa = textBox2->Text;
+				 //MessageBox::Show(Glob::us);
 
 				 cm->CommandText = "SELECT * FROM SIGNUP WHERE USERNAME='" + us + "' AND PASSWORD='" + pa + "'";
 				 dr = cm->ExecuteReader();
 				 if (dr->Read()){
-					 MessageBox::Show("You have successfully logedIn !");
+					 //MessageBox::Show("You have successfully logedIn !");
+					 Glob::us = us;
+	
 					 dr->Close();
 					 cn->Close();
 					
@@ -170,8 +175,15 @@ namespace Hostel_Management_System {
 					 this->Close();
 				 }
 				 else{
+					 MessageBox::Show("Wrong Username or Password !");
+					 textBox1->Text = "";
+					 textBox2->Text = "";
+					 textBox1->Focus();
 
 				 }
 	}
+private: System::Void MyForm1_FormClosing(System::Object^  sender, System::Windows::Forms::FormClosingEventArgs^  e) {
+			 this->Owner->Show();
+}
 };
 }

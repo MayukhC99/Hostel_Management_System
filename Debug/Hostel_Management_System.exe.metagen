@@ -1,4 +1,4 @@
-  Hostel_Management_System.MyForm.resources - Embedded, ContainedInManifestFile, 
+  Hostel_Management_System.MainForm.resources - Embedded, ContainedInManifestFile, 
   Hostel_Management_System.MyForm1.resources - Embedded, ContainedInManifestFile, 
   Hostel_Management_System.MyForm2.resources - Embedded, ContainedInManifestFile, 
 ImageRuntimeVersion: v4.0.30319
@@ -22,6 +22,9 @@ Class Hostel_Management_System.MyForm1: AutoLayout, AnsiClass, Class, Public, Be
 Class Hostel_Management_System.MyForm2: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
   :System.Windows.Forms.Form
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
-Class Hostel_Management_System.MyForm: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+Class Hostel_Management_System.MyForm3: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+Class Hostel_Management_System.MainForm: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
   :System.Windows.Forms.Form
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
