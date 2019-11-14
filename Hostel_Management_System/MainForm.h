@@ -3,6 +3,7 @@
 #include "MyForm2.h"
 #include "Registration.h"
 #include "GuestRegistration.h"
+#include "Glob.h"
 
 namespace Hostel_Management_System {
 
@@ -171,6 +172,7 @@ namespace Hostel_Management_System {
 			this->localRegistrationToolStripMenuItem->Name = L"localRegistrationToolStripMenuItem";
 			this->localRegistrationToolStripMenuItem->Size = System::Drawing::Size(228, 26);
 			this->localRegistrationToolStripMenuItem->Text = L"Guest Registration";
+			this->localRegistrationToolStripMenuItem->Click += gcnew System::EventHandler(this, &MainForm::localRegistrationToolStripMenuItem_Click);
 			// 
 			// label1
 			// 
@@ -220,6 +222,7 @@ namespace Hostel_Management_System {
 					 this->loginToolStripMenuItem->Enabled = false;
 					 this->signupToolStripMenuItem->Enabled = false;
 					 this->logoutToolStripMenuItem->Enabled = true;
+					 this->registerToolStripMenuItem->Enabled = true;
 
 				 }
 				 //login->WindowState = FormWindowState::Normal;
@@ -252,6 +255,13 @@ private: System::Void logoutToolStripMenuItem_Click(System::Object^  sender, Sys
 private: System::Void permanentRegistrationToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e) {
 			 Registration^ registration = gcnew Registration();
 			 registration->Owner = this;
+			 Glob::type = "Permanent";
+			 registration->ShowDialog();
+}
+private: System::Void localRegistrationToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e) {
+			 Registration^ registration = gcnew Registration();
+			 registration->Owner = this;
+			 Glob::type = "Guest";
 			 registration->ShowDialog();
 }
 };

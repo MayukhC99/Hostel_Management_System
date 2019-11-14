@@ -1,19 +1,27 @@
-﻿Build started 10-11-2019 18:04:34.
-     1>Project "C:\Users\Mayukh\Documents\Visual Studio 2013\Projects\Hostel_Management_System\Hostel_Management_System\Hostel_Management_System.vcxproj" on node 2 (Build target(s)).
+﻿Build started 14-11-2019 12:30:21.
+     1>Project "F:\Hostel_Management_System\Hostel_Management_System\Hostel_Management_System.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /AI"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\\" /AI"C:\Program Files (x86)\Windows Kits\8.1\References\CommonConfiguration\Neutral" /AI"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\Facades\\" /Zi /clr /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _UNICODE /D UNICODE /EHa /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /TP /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\mscorlib.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.Data.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.Drawing.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.Windows.Forms.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.Xml.dll" /analyze- /errorReport:prompt /clr:nostdlib MainForm.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /AI"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\\" /AI"C:\Program Files (x86)\Windows Kits\8.1\References\CommonConfiguration\Neutral" /AI"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\Facades\\" /Zi /clr /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _UNICODE /D UNICODE /EHa /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /TP /FUC:\Windows\assembly\GAC_MSIL\Microsoft.ReportViewer.Common\11.0.0.0__89845dcd8080cc91\Microsoft.ReportViewer.Common.dll /FUC:\Windows\assembly\GAC_MSIL\Microsoft.ReportViewer.WinForms\11.0.0.0__89845dcd8080cc91\Microsoft.ReportViewer.WinForms.dll /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\mscorlib.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.Core.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.Data.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.Drawing.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.Web.Services.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.Windows.Forms.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.Xml.dll" /analyze- /errorReport:prompt /clr:nostdlib Glob.cpp MainForm.cpp MyForm.cpp MyForm1.cpp MyForm2.cpp Registration.cpp
+         Glob.cpp
          MainForm.cpp
-     1>c:\users\mayukh\documents\visual studio 2013\projects\hostel_management_system\hostel_management_system\MyForm1.h(2): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+     1>f:\hostel_management_system\hostel_management_system\MyForm1.h(2): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+         MyForm.cpp
+         MyForm1.cpp
+     1>f:\hostel_management_system\hostel_management_system\MyForm1.h(2): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+         MyForm2.cpp
+         Registration.cpp
+         Generating Code...
        Link:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Mayukh\Documents\Visual Studio 2013\Projects\Hostel_Management_System\Debug\Hostel_Management_System.exe" /INCREMENTAL /NOLOGO /ASSEMBLYRESOURCE:Debug\Hostel_Management_System.MainForm.resources /ASSEMBLYRESOURCE:Debug\Hostel_Management_System.MyForm1.resources /ASSEMBLYRESOURCE:Debug\Hostel_Management_System.MyForm2.resources /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Mayukh\Documents\Visual Studio 2013\Projects\Hostel_Management_System\Debug\Hostel_Management_System.pdb" /ASSEMBLYDEBUG /SUBSYSTEM:WINDOWS /TLBID:1 /ENTRY:"main" /DYNAMICBASE /FIXED:NO /NXCOMPAT /MACHINE:X86 Debug\Glob.obj
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"F:\Hostel_Management_System\Debug\Hostel_Management_System.exe" /INCREMENTAL /NOLOGO /ASSEMBLYRESOURCE:Debug\Hostel_Management_System.MainForm.resources /ASSEMBLYRESOURCE:Debug\Hostel_Management_System.MyForm.resources /ASSEMBLYRESOURCE:Debug\Hostel_Management_System.MyForm1.resources /ASSEMBLYRESOURCE:Debug\Hostel_Management_System.MyForm2.resources /ASSEMBLYRESOURCE:Debug\Hostel_Management_System.Registration.resources /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"F:\Hostel_Management_System\Debug\Hostel_Management_System.pdb" /ASSEMBLYDEBUG /SUBSYSTEM:WINDOWS /TLBID:1 /ENTRY:"main" /DYNAMICBASE /FIXED:NO /NXCOMPAT /MACHINE:X86 Debug\Glob.obj
          Debug\MainForm.obj
+         Debug\MyForm.obj
          Debug\MyForm1.obj
          Debug\MyForm2.obj
-         Debug\MyForm3.obj
+         Debug\Registration.obj
          "Debug\.NETFramework,Version=v4.5.AssemblyAttributes.obj"
-         Hostel_Management_System.vcxproj -> C:\Users\Mayukh\Documents\Visual Studio 2013\Projects\Hostel_Management_System\Debug\Hostel_Management_System.exe
-     1>Done Building Project "C:\Users\Mayukh\Documents\Visual Studio 2013\Projects\Hostel_Management_System\Hostel_Management_System\Hostel_Management_System.vcxproj" (Build target(s)).
+         Hostel_Management_System.vcxproj -> F:\Hostel_Management_System\Debug\Hostel_Management_System.exe
+     1>Done Building Project "F:\Hostel_Management_System\Hostel_Management_System\Hostel_Management_System.vcxproj" (Build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:00.80
+Time Elapsed 00:00:03.22

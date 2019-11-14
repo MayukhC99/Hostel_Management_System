@@ -30,7 +30,7 @@
     <ClCompile Include="Registration.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="GuestRegistration.cpp">
+    <ClCompile Include="MyForm.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -50,7 +50,7 @@
     <ClInclude Include="Registration.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="GuestRegistration.h">
+    <ClInclude Include="MyForm.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -62,6 +62,12 @@
       <Filter>Resource Files</Filter>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
+      <Filter>Resource Files</Filter>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Registration.resx">
+      <Filter>Resource Files</Filter>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyForm.resx">
       <Filter>Resource Files</Filter>
     </EmbeddedResource>
   </ItemGroup>
