@@ -9,6 +9,7 @@ namespace Hostel_Management_System {
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
+	using namespace System::Data::Odbc;
 
 	/// <summary>
 	/// Summary for Registration
@@ -37,6 +38,9 @@ namespace Hostel_Management_System {
 		}
 	private: System::Windows::Forms::GroupBox^  groupBox1;
 			 String^ type;
+			 OdbcConnection ^cn;
+			 OdbcCommand ^cm;
+			 OdbcDataReader ^ dr;
 	protected:
 	private: System::Windows::Forms::PictureBox^  pictureBox1;
 	private: System::Windows::Forms::Button^  button1;
@@ -116,6 +120,7 @@ namespace Hostel_Management_System {
 			this->pictureBox1->Location = System::Drawing::Point(7, 9);
 			this->pictureBox1->Name = L"pictureBox1";
 			this->pictureBox1->Size = System::Drawing::Size(97, 121);
+			this->pictureBox1->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
 			this->pictureBox1->TabIndex = 5;
 			this->pictureBox1->TabStop = false;
 			// 
@@ -129,7 +134,7 @@ namespace Hostel_Management_System {
 			this->button1->Location = System::Drawing::Point(7, 136);
 			this->button1->Name = L"button1";
 			this->button1->Size = System::Drawing::Size(98, 33);
-			this->button1->TabIndex = 4;
+			this->button1->TabIndex = 5;
 			this->button1->Text = L"Upload";
 			this->button1->UseVisualStyleBackColor = false;
 			this->button1->Click += gcnew System::EventHandler(this, &Registration::button1_Click);
@@ -161,32 +166,36 @@ namespace Hostel_Management_System {
 			// 
 			// comboBox1
 			// 
+			this->comboBox1->DropDownStyle = System::Windows::Forms::ComboBoxStyle::DropDownList;
 			this->comboBox1->FormattingEnabled = true;
 			this->comboBox1->Location = System::Drawing::Point(180, 198);
 			this->comboBox1->Name = L"comboBox1";
 			this->comboBox1->Size = System::Drawing::Size(327, 26);
-			this->comboBox1->TabIndex = 6;
+			this->comboBox1->TabIndex = 4;
+			this->comboBox1->SelectedIndexChanged += gcnew System::EventHandler(this, &Registration::comboBox1_SelectedIndexChanged);
 			// 
 			// button3
 			// 
+			this->button3->BackColor = System::Drawing::Color::FloralWhite;
 			this->button3->ForeColor = System::Drawing::Color::DarkGreen;
 			this->button3->Location = System::Drawing::Point(375, 315);
 			this->button3->Name = L"button3";
 			this->button3->Size = System::Drawing::Size(133, 46);
-			this->button3->TabIndex = 5;
+			this->button3->TabIndex = 8;
 			this->button3->Text = L"Close";
-			this->button3->UseVisualStyleBackColor = true;
+			this->button3->UseVisualStyleBackColor = false;
 			this->button3->Click += gcnew System::EventHandler(this, &Registration::button3_Click);
 			// 
 			// button2
 			// 
+			this->button2->BackColor = System::Drawing::Color::FloralWhite;
 			this->button2->ForeColor = System::Drawing::Color::SeaGreen;
 			this->button2->Location = System::Drawing::Point(212, 315);
 			this->button2->Name = L"button2";
 			this->button2->Size = System::Drawing::Size(133, 46);
-			this->button2->TabIndex = 5;
+			this->button2->TabIndex = 7;
 			this->button2->Text = L"Register";
-			this->button2->UseVisualStyleBackColor = true;
+			this->button2->UseVisualStyleBackColor = false;
 			this->button2->Click += gcnew System::EventHandler(this, &Registration::button2_Click);
 			// 
 			// textBox4
@@ -195,28 +204,28 @@ namespace Hostel_Management_System {
 			this->textBox4->Name = L"textBox4";
 			this->textBox4->ReadOnly = true;
 			this->textBox4->Size = System::Drawing::Size(330, 25);
-			this->textBox4->TabIndex = 4;
+			this->textBox4->TabIndex = 6;
 			// 
 			// textBox3
 			// 
 			this->textBox3->Location = System::Drawing::Point(178, 139);
 			this->textBox3->Name = L"textBox3";
 			this->textBox3->Size = System::Drawing::Size(330, 25);
-			this->textBox3->TabIndex = 4;
+			this->textBox3->TabIndex = 3;
 			// 
 			// textBox2
 			// 
 			this->textBox2->Location = System::Drawing::Point(178, 88);
 			this->textBox2->Name = L"textBox2";
 			this->textBox2->Size = System::Drawing::Size(330, 25);
-			this->textBox2->TabIndex = 4;
+			this->textBox2->TabIndex = 2;
 			// 
 			// textBox1
 			// 
 			this->textBox1->Location = System::Drawing::Point(178, 27);
 			this->textBox1->Name = L"textBox1";
 			this->textBox1->Size = System::Drawing::Size(330, 25);
-			this->textBox1->TabIndex = 4;
+			this->textBox1->TabIndex = 1;
 			// 
 			// label5
 			// 
@@ -293,6 +302,7 @@ namespace Hostel_Management_System {
 			this->ClientSize = System::Drawing::Size(669, 407);
 			this->Controls->Add(this->groupBox2);
 			this->Controls->Add(this->groupBox1);
+			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
 			this->MaximizeBox = false;
 			this->MinimizeBox = false;
 			this->Name = L"Registration";
@@ -310,6 +320,7 @@ namespace Hostel_Management_System {
 #pragma endregion
 		public: static String^ Chosen_File;
 		public: static void getfile() {
+			Chosen_File = "";
 			Windows::Forms::OpenFileDialog^ openFileDialogAvi = gcnew OpenFileDialog;
 			openFileDialogAvi->Title = "Select Image";
 			openFileDialogAvi->InitialDirectory = "C:";
@@ -331,6 +342,10 @@ namespace Hostel_Management_System {
 				 type = Glob::type;
 				 Glob::type = "";
 				 this->textBox4->Text = type;
+				 pictureBox1->Image = Image::FromFile(".//Profile.png");
+				 pictureBox1->ImageLocation = ".//Profile.png";
+
+				 this->textBox1->Select();
 	}
 	private: System::Void label2_Click(System::Object^  sender, System::EventArgs^  e) {
 	}
@@ -339,11 +354,44 @@ private: System::Void button1_Click(System::Object^  sender, System::EventArgs^ 
 			 threadGetFile->ApartmentState = Threading::ApartmentState::STA;
 			 threadGetFile->Start();
 			 threadGetFile->Join();
-			 pictureBox1->Image = Image::FromFile(Chosen_File);
+			 if (Chosen_File != ""){
+				 pictureBox1->Image = Image::FromFile(Chosen_File);
+				 pictureBox1->ImageLocation = Chosen_File;
+			 }
 			 Chosen_File = "";
 			
 }
 private: System::Void button2_Click(System::Object^  sender, System::EventArgs^  e) {
+			 if (textBox1->Text != "" && textBox2->Text != "" && textBox3->Text != "" && textBox4->Text != "" && comboBox1->Text != ""){
+				 //MessageBox::Show("Success");
+				 String^ name = textBox1->Text;
+				 String^ email = textBox2->Text;
+				 String^ number = textBox3->Text;
+				 String^ gender = comboBox1->Text;
+				 String^ ty = textBox4->Text;
+				 String^ image = pictureBox1->ImageLocation;
+				 DateTime^ dt = DateTime::Now;
+				 //MessageBox::Show(image);
+
+				 cn = gcnew OdbcConnection("dsn=MyDsn1");
+				 cn->Open();
+				 cm = cn->CreateCommand();
+
+				 String ^Cmd = "INSERT INTO REGISTRATION (Username, Full_Name, Email, Gender, Contact, Image, Reg_Type, Date_Time) VALUES ('" + Glob::us + "', '" + name + "', '" + email + "', '" + gender + "', '" + number + "', '" + image + "', '" + ty + "', '" + dt->ToString("dd-MM-yyyy hh:mm:ss") + "')";
+				 cm->CommandText = Cmd;
+				 cm->ExecuteNonQuery();
+
+				 MessageBox::Show("Candidate has been successfully created");
+
+				 cn->Close();
+				 this->Owner->Show();//Shows the parent form 
+				 this->Close();//closes itself
+			 }
+			 else {
+				 /*DateTime^ dt = DateTime::Now;
+				 MessageBox::Show(dt->ToString("dd-MM-yyyy hh:mm:ss"));//Format according to Database*/
+				 MessageBox::Show("Fill the fields properly !");
+			 }
 }
 private: System::Void button3_Click(System::Object^  sender, System::EventArgs^  e) {
 			 this->Owner->Show();
@@ -352,6 +400,8 @@ private: System::Void button3_Click(System::Object^  sender, System::EventArgs^ 
 }
 private: System::Void Registration_FormClosing(System::Object^  sender, System::Windows::Forms::FormClosingEventArgs^  e) {
 			 this->Owner->Show();
+}
+private: System::Void comboBox1_SelectedIndexChanged(System::Object^  sender, System::EventArgs^  e) {
 }
 };
 }

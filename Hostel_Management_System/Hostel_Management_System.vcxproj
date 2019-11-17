@@ -52,6 +52,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -86,19 +87,27 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="CheckOut.cpp" />
+    <ClCompile Include="Details.cpp" />
     <ClCompile Include="Glob.cpp" />
+    <ClCompile Include="LogBook.cpp" />
     <ClCompile Include="MainForm.cpp" />
-    <ClCompile Include="MyForm.cpp" />
     <ClCompile Include="MyForm1.cpp" />
     <ClCompile Include="MyForm2.cpp" />
     <ClCompile Include="Registration.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Glob.h" />
-    <ClInclude Include="MainForm.h">
+    <ClInclude Include="CheckOut.h">
       <FileType>CppForm</FileType>
     </ClInclude>
-    <ClInclude Include="MyForm.h">
+    <ClInclude Include="Details.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="Glob.h" />
+    <ClInclude Include="LogBook.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="MainForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="MyForm1.h">
@@ -110,13 +119,20 @@
     <ClInclude Include="Registration.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="resource.h" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="CheckOut.resx">
+      <DependentUpon>CheckOut.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Details.resx">
+      <DependentUpon>Details.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LogBook.resx">
+      <DependentUpon>LogBook.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.h</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="MyForm.resx">
-      <DependentUpon>MyForm.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MyForm1.resx">
       <DependentUpon>MyForm1.h</DependentUpon>
@@ -127,6 +143,12 @@
     <EmbeddedResource Include="Registration.resx">
       <DependentUpon>Registration.h</DependentUpon>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Hostel_Management_System.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="icon1.ico" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

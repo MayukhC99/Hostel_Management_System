@@ -3,7 +3,10 @@
 #include "MyForm2.h"
 #include "Registration.h"
 #include "GuestRegistration.h"
+#include "CheckOut.h"
+#include "Details.h"
 #include "Glob.h"
+#include "LogBook.h"
 
 namespace Hostel_Management_System {
 
@@ -50,6 +53,13 @@ namespace Hostel_Management_System {
 	private: System::Windows::Forms::ToolStripMenuItem^  permanentRegistrationToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^  localRegistrationToolStripMenuItem;
 	private: System::Windows::Forms::Label^  label1;
+	private: System::Windows::Forms::ToolStripMenuItem^  checkOutToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^  guestToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^  studentToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^  studentDetailsToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^  currentToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^  checkedOutToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^  chckedOutLogBookToolStripMenuItem;
 
 
 	protected:
@@ -83,6 +93,13 @@ namespace Hostel_Management_System {
 			this->registerToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->permanentRegistrationToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->localRegistrationToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->checkOutToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->guestToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->studentToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->studentDetailsToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->currentToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->checkedOutToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->chckedOutLogBookToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->menuStrip1->SuspendLayout();
 			this->SuspendLayout();
@@ -90,13 +107,13 @@ namespace Hostel_Management_System {
 			// menuStrip1
 			// 
 			this->menuStrip1->BackColor = System::Drawing::SystemColors::ActiveCaptionText;
-			this->menuStrip1->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(2) {
+			this->menuStrip1->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(4) {
 				this->getInToolStripMenuItem,
-					this->registerToolStripMenuItem
+					this->registerToolStripMenuItem, this->checkOutToolStripMenuItem, this->studentDetailsToolStripMenuItem
 			});
 			this->menuStrip1->Location = System::Drawing::Point(0, 0);
 			this->menuStrip1->Name = L"menuStrip1";
-			this->menuStrip1->Size = System::Drawing::Size(461, 29);
+			this->menuStrip1->Size = System::Drawing::Size(617, 29);
 			this->menuStrip1->TabIndex = 0;
 			this->menuStrip1->Text = L"menuStrip1";
 			// 
@@ -174,6 +191,72 @@ namespace Hostel_Management_System {
 			this->localRegistrationToolStripMenuItem->Text = L"Guest Registration";
 			this->localRegistrationToolStripMenuItem->Click += gcnew System::EventHandler(this, &MainForm::localRegistrationToolStripMenuItem_Click);
 			// 
+			// checkOutToolStripMenuItem
+			// 
+			this->checkOutToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(2) {
+				this->guestToolStripMenuItem,
+					this->studentToolStripMenuItem
+			});
+			this->checkOutToolStripMenuItem->Font = (gcnew System::Drawing::Font(L"Segoe UI Black", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->checkOutToolStripMenuItem->ForeColor = System::Drawing::Color::Gold;
+			this->checkOutToolStripMenuItem->Name = L"checkOutToolStripMenuItem";
+			this->checkOutToolStripMenuItem->Size = System::Drawing::Size(97, 25);
+			this->checkOutToolStripMenuItem->Text = L"CheckOut";
+			// 
+			// guestToolStripMenuItem
+			// 
+			this->guestToolStripMenuItem->ForeColor = System::Drawing::Color::Gold;
+			this->guestToolStripMenuItem->Name = L"guestToolStripMenuItem";
+			this->guestToolStripMenuItem->Size = System::Drawing::Size(142, 26);
+			this->guestToolStripMenuItem->Text = L"Guest";
+			this->guestToolStripMenuItem->Click += gcnew System::EventHandler(this, &MainForm::guestToolStripMenuItem_Click);
+			// 
+			// studentToolStripMenuItem
+			// 
+			this->studentToolStripMenuItem->ForeColor = System::Drawing::Color::Gold;
+			this->studentToolStripMenuItem->Name = L"studentToolStripMenuItem";
+			this->studentToolStripMenuItem->Size = System::Drawing::Size(142, 26);
+			this->studentToolStripMenuItem->Text = L"Student";
+			this->studentToolStripMenuItem->Click += gcnew System::EventHandler(this, &MainForm::studentToolStripMenuItem_Click);
+			// 
+			// studentDetailsToolStripMenuItem
+			// 
+			this->studentDetailsToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(3) {
+				this->currentToolStripMenuItem,
+					this->checkedOutToolStripMenuItem, this->chckedOutLogBookToolStripMenuItem
+			});
+			this->studentDetailsToolStripMenuItem->Font = (gcnew System::Drawing::Font(L"Segoe UI Black", 12, System::Drawing::FontStyle::Bold,
+				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
+			this->studentDetailsToolStripMenuItem->ForeColor = System::Drawing::Color::Gold;
+			this->studentDetailsToolStripMenuItem->Name = L"studentDetailsToolStripMenuItem";
+			this->studentDetailsToolStripMenuItem->Size = System::Drawing::Size(143, 25);
+			this->studentDetailsToolStripMenuItem->Text = L"Student Details";
+			// 
+			// currentToolStripMenuItem
+			// 
+			this->currentToolStripMenuItem->ForeColor = System::Drawing::Color::Gold;
+			this->currentToolStripMenuItem->Name = L"currentToolStripMenuItem";
+			this->currentToolStripMenuItem->Size = System::Drawing::Size(238, 26);
+			this->currentToolStripMenuItem->Text = L"Current";
+			this->currentToolStripMenuItem->Click += gcnew System::EventHandler(this, &MainForm::currentToolStripMenuItem_Click);
+			// 
+			// checkedOutToolStripMenuItem
+			// 
+			this->checkedOutToolStripMenuItem->ForeColor = System::Drawing::Color::Gold;
+			this->checkedOutToolStripMenuItem->Name = L"checkedOutToolStripMenuItem";
+			this->checkedOutToolStripMenuItem->Size = System::Drawing::Size(238, 26);
+			this->checkedOutToolStripMenuItem->Text = L"CheckedOut";
+			this->checkedOutToolStripMenuItem->Click += gcnew System::EventHandler(this, &MainForm::checkedOutToolStripMenuItem_Click);
+			// 
+			// chckedOutLogBookToolStripMenuItem
+			// 
+			this->chckedOutLogBookToolStripMenuItem->ForeColor = System::Drawing::Color::Gold;
+			this->chckedOutLogBookToolStripMenuItem->Name = L"chckedOutLogBookToolStripMenuItem";
+			this->chckedOutLogBookToolStripMenuItem->Size = System::Drawing::Size(238, 26);
+			this->chckedOutLogBookToolStripMenuItem->Text = L"ChckedOut LogBook";
+			this->chckedOutLogBookToolStripMenuItem->Click += gcnew System::EventHandler(this, &MainForm::chckedOutLogBookToolStripMenuItem_Click);
+			// 
 			// label1
 			// 
 			this->label1->AutoSize = true;
@@ -193,9 +276,10 @@ namespace Hostel_Management_System {
 			this->AutoSize = true;
 			this->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"$this.BackgroundImage")));
 			this->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
-			this->ClientSize = System::Drawing::Size(461, 438);
+			this->ClientSize = System::Drawing::Size(617, 496);
 			this->Controls->Add(this->label1);
 			this->Controls->Add(this->menuStrip1);
+			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
 			this->MainMenuStrip = this->menuStrip1;
 			this->Name = L"MainForm";
 			this->Text = L"MainForm";
@@ -223,6 +307,8 @@ namespace Hostel_Management_System {
 					 this->signupToolStripMenuItem->Enabled = false;
 					 this->logoutToolStripMenuItem->Enabled = true;
 					 this->registerToolStripMenuItem->Enabled = true;
+					 this->checkOutToolStripMenuItem->Enabled = true;
+					 this->studentDetailsToolStripMenuItem->Enabled = true;
 
 				 }
 				 //login->WindowState = FormWindowState::Normal;
@@ -230,6 +316,8 @@ namespace Hostel_Management_System {
 private: System::Void MyForm_Load(System::Object^  sender, System::EventArgs^  e) {
 			 this->logoutToolStripMenuItem->Enabled = false;
 			 this->registerToolStripMenuItem->Enabled = false;
+			 this->checkOutToolStripMenuItem->Enabled = false;
+			 this->studentDetailsToolStripMenuItem->Enabled = false;
 }
 private: System::Void signupToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e) {
 
@@ -247,9 +335,12 @@ private: System::Void label2_Click(System::Object^  sender, System::EventArgs^  
 private: System::Void logoutToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e) {
 			 label1->Text = "";
 			 Glob::us = "";
+			 this->registerToolStripMenuItem->Enabled = false;
+			 this->checkOutToolStripMenuItem->Enabled = false;
 			 this->logoutToolStripMenuItem->Enabled = false;
 			 this->loginToolStripMenuItem->Enabled = true;
 			 this->signupToolStripMenuItem->Enabled = true;
+			 this->studentDetailsToolStripMenuItem->Enabled = false;
 			 MessageBox::Show("You have successfully LogedOut !");
 }
 private: System::Void permanentRegistrationToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e) {
@@ -263,6 +354,35 @@ private: System::Void localRegistrationToolStripMenuItem_Click(System::Object^  
 			 registration->Owner = this;
 			 Glob::type = "Guest";
 			 registration->ShowDialog();
+}
+private: System::Void guestToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e) {
+			 CheckOut^ ck = gcnew CheckOut();
+			 ck->Owner = this;
+			 Glob::type = "Guest";
+			 ck->ShowDialog();
+}
+private: System::Void studentToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e) {
+			 CheckOut^ ck = gcnew CheckOut();
+			 ck->Owner = this;
+			 Glob::type = "Permanent";
+			 ck->ShowDialog();
+}
+private: System::Void currentToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e) {
+			 Details^ det = gcnew Details();
+			 det->Owner = this;
+			 Glob::type = "Permanent";
+			 det->ShowDialog();
+}
+private: System::Void checkedOutToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e) {
+			 Details^ det = gcnew Details();
+			 det->Owner = this;
+			 Glob::type = "Guest";
+			 det->ShowDialog();
+}
+private: System::Void chckedOutLogBookToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e) {
+			 LogBook^ log = gcnew LogBook();
+			 log->Owner = this;
+			 log->ShowDialog();
 }
 };
 }

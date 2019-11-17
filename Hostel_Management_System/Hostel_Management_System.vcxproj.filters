@@ -30,7 +30,13 @@
     <ClCompile Include="Registration.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="MyForm.cpp">
+    <ClCompile Include="CheckOut.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Details.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="LogBook.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -50,7 +56,16 @@
     <ClInclude Include="Registration.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="MyForm.h">
+    <ClInclude Include="CheckOut.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Details.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="LogBook.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -67,8 +82,24 @@
     <EmbeddedResource Include="Registration.resx">
       <Filter>Resource Files</Filter>
     </EmbeddedResource>
-    <EmbeddedResource Include="MyForm.resx">
+    <EmbeddedResource Include="CheckOut.resx">
       <Filter>Resource Files</Filter>
     </EmbeddedResource>
+    <EmbeddedResource Include="Details.resx">
+      <Filter>Resource Files</Filter>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LogBook.resx">
+      <Filter>Resource Files</Filter>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Hostel_Management_System.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="icon1.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
 </Project>

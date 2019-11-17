@@ -139,6 +139,8 @@ namespace Hostel_Management_System {
 			this->Controls->Add(this->label2);
 			this->Controls->Add(this->label1);
 			this->DoubleBuffered = true;
+			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
+			this->MaximizeBox = false;
 			this->Name = L"MyForm1";
 			this->Text = L"Login";
 			this->FormClosing += gcnew System::Windows::Forms::FormClosingEventHandler(this, &MyForm1::MyForm1_FormClosing);
