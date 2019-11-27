@@ -181,6 +181,9 @@ namespace Hostel_Management_System {
 					 textBox1->Text = "";
 					 textBox2->Text = "";
 					 textBox1->Focus();
+					 //newly added change
+					 dr->Close();
+					 cn->Close();
 
 				 }
 	}
